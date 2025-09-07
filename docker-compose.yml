@@ -28,9 +28,6 @@ services:
       - "${BACKEND_PORT}:3000"
     env_file:
       - .env
-    volumes:
-      - ./pharmasys-api:/usr/src/app
-      - /usr/src/app/node_modules
     depends_on:
       - db
     restart: unless-stopped
