@@ -1,0 +1,6 @@
+[submodule "pharmasys-api"]
+	path = pharmasys-api
+	url = https://github.com/Arthu085/pharmasys-api.git
+[submodule "pharmasys"]
+	path = pharmasys
+	url = https://github.com/Arthu085/pharmasys.git
