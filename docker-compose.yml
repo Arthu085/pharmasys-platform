@@ -24,6 +24,14 @@ services:
     build:
       context: ./pharmasys-api
       dockerfile: Dockerfile.dev
+    command:
+      - sh
+      - -c
+      - |
+        if [ ! -d node_modules ] || [ -z "$(ls -A node_modules 2>/dev/null)" ]; then
+          npm ci
+        fi
+        npm run migration:run && npm run seed:run && npm run start:dev
     ports:
       - "${BACKEND_PORT}:3000"
     env_file:
@@ -42,6 +50,14 @@ services:
     build:
       context: ./pharmasys
       dockerfile: Dockerfile.dev
+    command:
+      - sh
+      - -c
+      - |
+        if [ ! -d node_modules ] || [ -z "$(ls -A node_modules 2>/dev/null)" ]; then
+          npm ci
+        fi
+        npm run dev -- --host 0.0.0.0
     ports:
       - "${FRONTEND_PORT}:5173"
     volumes:
