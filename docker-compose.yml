@@ -50,6 +50,9 @@ services:
     build:
       context: ./pharmasys
       dockerfile: Dockerfile.dev
+    environment:
+      - VITE_HMR_CLIENT_PORT=${FRONTEND_PORT}
+      - CHOKIDAR_USEPOLLING=true
     command:
       - sh
       - -c
