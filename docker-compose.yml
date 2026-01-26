@@ -15,7 +15,6 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./scripts/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
-    restart: unless-stopped
     networks:
       - pharmasys-net
 
@@ -41,7 +40,6 @@ services:
       - /src/app/node_modules
     depends_on:
       - db
-    restart: unless-stopped
     networks:
       - pharmasys-net
 
@@ -66,7 +64,6 @@ services:
     volumes:
       - ./pharmasys:/app
       - /app/node_modules
-    restart: unless-stopped
     networks:
       - pharmasys-net
 
