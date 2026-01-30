@@ -49,16 +49,14 @@ services:
       context: ./pharmasys
       dockerfile: Dockerfile.dev
     environment:
+      - VITE_API_URL=http://localhost:${BACKEND_PORT}
       - VITE_HMR_CLIENT_PORT=${FRONTEND_PORT}
-      - CHOKIDAR_USEPOLLING=true
-    command:
-      - sh
-      - -c
-      - |
-        if [ ! -d node_modules ] || [ -z "$(ls -A node_modules 2>/dev/null)" ]; then
-          npm ci
-        fi
-        npm run dev -- --host 0.0.0.0
+
+      ## Mac/Windows = deixar true
+      - CHOKIDAR_USEPOLLING=${CHOKIDAR_USEPOLLING:-false}
+
+      - UV_THREADPOOL_SIZE=64
+    command: npm run dev -- --host 0.0.0.0
     ports:
       - "${FRONTEND_PORT}:5173"
     volumes:
