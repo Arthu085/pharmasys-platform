@@ -117,6 +117,8 @@ docker-compose down -v
 
 Você pode testar o sistema diretamente em produção sem precisar instalar nada localmente:
 
+⚠️ A aplicação está hospedada no Render, então o primeiro carregamento pode ser um pouco mais lento enquanto o serviço é inicializado.
+
 🔗 **[Acesse o PharmaSys Online](https://pharmasys-zh50.onrender.com/)**
 
 ## 📁 Estrutura do Projeto
